@@ -244,18 +244,6 @@ npm run dev
 | timeSlot.start | string | Yes      | Format: HH:mm (24-hour)                 |
 | timeSlot.end   | string | Yes      | Format: HH:mm (24-hour)                 |
 
-### Ground Routes
-
-#### 1. Create Ground (`POST /api/v1/grounds`)
-
-| Field        | Type   | Required | Validation Rules                |
-| ------------ | ------ | -------- | ------------------------------- |
-| name         | string | Yes      | Min length: 2 characters        |
-| type         | string | Yes      | Must be one of predefined types |
-| pricePerHour | number | Yes      | Must be greater than 0          |
-| location     | string | Yes      | Min length: 2 characters        |
-| capacity     | number | Yes      | Must be greater than 0          |
-
 ## Authentication
 
 - Uses JWT tokens stored in HTTP-only cookies
