@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 import { Ground } from "../models/ground.model";
+import { configDotenv } from "dotenv";
+
+configDotenv();
 
 const seedGrounds = async () => {
-  await mongoose.connect("mongodb://localhost:27017/test");
+  await mongoose.connect(process.env.MONGODB_URL || "");
 
   const existing = await Ground.countDocuments();
   if (existing > 0) {

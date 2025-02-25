@@ -1,7 +1,13 @@
+import { configDotenv } from "dotenv";
 import mongoose from "mongoose";
 
-const DbConnection =
-  process.env.MONGODB_URL || "mongodb://localhost:27017/test";
+configDotenv();
+
+const DbConnection = process.env.MONGODB_URL || "";
+
+if (!DbConnection) {
+  console.error("Mongo db url not present");
+}
 
 export async function ConnectToDb() {
   try {
