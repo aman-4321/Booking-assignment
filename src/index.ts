@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
@@ -20,7 +20,7 @@ ConnectToDb();
 app.use(
   cors({
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(helmet());
@@ -30,6 +30,12 @@ app.use(cookieParser());
 app.use("/api/v1/user", UserRouter);
 app.use("/api/v1/grounds", GroundRouter);
 app.use("/api/v1/bookings", BookingRouter);
+
+app.get("/health", (req: Request, res: Response) => {
+  res.json({
+    status: "ok",
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
