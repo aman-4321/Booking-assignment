@@ -1,4 +1,4 @@
-# AtmoSpark Ground Booking API
+# Ground Booking API
 
 A REST API for sports ground booking system built with Express.js and TypeScript.
 
